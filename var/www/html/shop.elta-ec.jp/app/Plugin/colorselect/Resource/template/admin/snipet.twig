@@ -1,0 +1,78 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% block javascript %}
+<script type="text/javascript">
+
+
+var SetImags = {
+    0: ["colorimg1", "admin_product_colorimg1"],
+    1: ["colorimg2", "admin_product_colorimg2"],
+    2: ["colorimg3", "admin_product_colorimg3"],
+    3: ["colorimg4", "admin_product_colorimg4"],
+    4: ["colorimg5", "admin_product_colorimg5"],
+    5: ["colorimg6", "admin_product_colorimg6"],
+    6: ["colorimg7", "admin_product_colorimg7"],
+    7: ["colorimg8", "admin_product_colorimg8"]
+
+
+
+};
+
+function FSend(i) {
+    var tid = SetImags[i][0];
+    var targets = SetImags[i][1];
+    var form = $('#fsend' + tid).get()[0];
+    var formData = new FormData(form);
+    $.ajax({
+        url: '{{ url('plugin_colorselect_set') }}',
+                            method: 'post',
+                            dataType: 'json',
+                            data: formData,
+                            processData: false,
+                            contentType: false
+                        }).done(function (res) {
+                            document.getElementById(targets ).value = "{{ url('homepage') }}html/upload/save_image/" + res.files[0];
+                            $("#" + tid + '_text').val("")
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log('ERROR', jqXHR, textStatus, errorThrown);
+                        });
+                    }
+
+                    $(window).on("load", function () {
+                        for (var i in SetImags) {
+                            $('form').before(
+                                '<form id="fsend' + SetImags[i][0] + '" method="post" action="/" enctype="multipart/form-data" target="_blank" style="display: none;">\n' +
+                                '<input type="file" id="' + SetImags[i][0] + '" name="admin_product[damy][]">\n' +
+                                '</form>');
+                            $('#' + SetImags[i][1]).before('<img id="p' + SetImags[i][0] + '" style="display: none;max-height: 100px;max-width: 100px;"><br>');
+                            $('#' + SetImags[i][1]).after(
+                                '<div id="' + SetImags[i][0] + '_text"></div>' +
+                                '<button type="button" onclick="$(\'#' +    SetImags[i][0] + '\'                           ).click();">ファイル選択</button>' +
+                                '<button type="button" onclick="FSend(\'' + i + '\');"        >ファイル保存</button>'
+                            );
+                        }
+                        setInterval(
+                            function () {
+                                for (var i in SetImags) {
+                                    document.getElementById(SetImags[i][0]).innerText = document.getElementById(SetImags[i][0]).value;
+                                    if (document.getElementById(SetImags[i][1]).value != "") {
+                                        document.getElementById("p" + SetImags[i][0]).src = document.getElementById(SetImags[i][1]).value;
+                                        document.getElementById("p" + SetImags[i][0]).style.display = "";
+                                    } else {
+                                        document.getElementById("p" + SetImags[i][0]).style.display = "none";
+                                    }
+                                }
+                            }, 100
+                        );
+                    });
+</script>
+{% endblock javascript %}

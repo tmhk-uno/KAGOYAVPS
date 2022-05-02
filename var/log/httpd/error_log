@@ -1,0 +1,58 @@
+[Sun Feb 21 03:41:01.388138 2021] [lbmethod_heartbeat:notice] [pid 27894] AH02282: No slotmem from mod_heartmonitor
+[Sun Feb 21 03:41:01.388196 2021] [http2:warn] [pid 27894] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Sun Feb 21 03:41:01.427748 2021] [mpm_prefork:notice] [pid 27894] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Sun Feb 21 03:41:01.427764 2021] [core:notice] [pid 27894] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 11:27:02.297812 2021] [mpm_prefork:notice] [pid 27894] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 11:27:03.421624 2021] [suexec:notice] [pid 41413] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 11:27:03.443021 2021] [lbmethod_heartbeat:notice] [pid 41413] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 11:27:03.443070 2021] [http2:warn] [pid 41413] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 11:27:03.515519 2021] [mpm_prefork:notice] [pid 41413] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 11:27:03.515547 2021] [core:notice] [pid 41413] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 12:15:39.435646 2021] [mpm_prefork:notice] [pid 41413] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 12:15:40.526903 2021] [suexec:notice] [pid 41634] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 12:15:40.547403 2021] [lbmethod_heartbeat:notice] [pid 41634] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 12:15:40.547444 2021] [http2:warn] [pid 41634] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 12:15:40.599527 2021] [mpm_prefork:notice] [pid 41634] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 12:15:40.599548 2021] [core:notice] [pid 41634] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 12:26:55.042555 2021] [mpm_prefork:notice] [pid 41634] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 12:26:56.136056 2021] [suexec:notice] [pid 41735] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 12:26:56.159209 2021] [lbmethod_heartbeat:notice] [pid 41735] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 12:26:56.159294 2021] [http2:warn] [pid 41735] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 12:26:56.198740 2021] [mpm_prefork:notice] [pid 41735] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 12:26:56.198769 2021] [core:notice] [pid 41735] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 13:03:27.133425 2021] [mpm_prefork:notice] [pid 41735] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 13:03:28.210927 2021] [suexec:notice] [pid 41932] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 13:03:28.235958 2021] [lbmethod_heartbeat:notice] [pid 41932] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 13:03:28.236018 2021] [http2:warn] [pid 41932] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 13:03:28.258414 2021] [mpm_prefork:notice] [pid 41932] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 13:03:28.258432 2021] [core:notice] [pid 41932] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 13:09:13.545503 2021] [mpm_prefork:notice] [pid 41932] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 13:09:14.627323 2021] [suexec:notice] [pid 42044] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 13:09:14.656132 2021] [lbmethod_heartbeat:notice] [pid 42044] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 13:09:14.656199 2021] [http2:warn] [pid 42044] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 13:09:14.688561 2021] [mpm_prefork:notice] [pid 42044] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 13:09:14.688588 2021] [core:notice] [pid 42044] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 16:41:55.322943 2021] [mpm_prefork:notice] [pid 42044] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 16:41:56.397898 2021] [suexec:notice] [pid 42947] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 16:41:56.431810 2021] [lbmethod_heartbeat:notice] [pid 42947] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 16:41:56.431864 2021] [http2:warn] [pid 42947] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 16:41:56.461903 2021] [mpm_prefork:notice] [pid 42947] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 16:41:56.461936 2021] [core:notice] [pid 42947] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 16:58:38.430074 2021] [mpm_prefork:notice] [pid 42947] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 16:58:39.510598 2021] [suexec:notice] [pid 43111] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 16:58:39.533258 2021] [lbmethod_heartbeat:notice] [pid 43111] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 16:58:39.533308 2021] [http2:warn] [pid 43111] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 16:58:39.557124 2021] [mpm_prefork:notice] [pid 43111] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 16:58:39.557162 2021] [core:notice] [pid 43111] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 17:50:35.951746 2021] [mpm_prefork:notice] [pid 43111] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 17:50:37.023099 2021] [suexec:notice] [pid 43306] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 17:50:37.045544 2021] [lbmethod_heartbeat:notice] [pid 43306] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 17:50:37.045609 2021] [http2:warn] [pid 43306] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 17:50:37.068854 2021] [mpm_prefork:notice] [pid 43306] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 17:50:37.068882 2021] [core:notice] [pid 43306] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 24 18:04:30.399767 2021] [mpm_prefork:notice] [pid 43306] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 24 18:04:31.494809 2021] [suexec:notice] [pid 43434] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 24 18:04:31.526468 2021] [lbmethod_heartbeat:notice] [pid 43434] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 24 18:04:31.526533 2021] [http2:warn] [pid 43434] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Wed Feb 24 18:04:31.555860 2021] [mpm_prefork:notice] [pid 43434] AH00163: Apache/2.4.37 (centos) OpenSSL/1.1.1g configured -- resuming normal operations
+[Wed Feb 24 18:04:31.555882 2021] [core:notice] [pid 43434] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'

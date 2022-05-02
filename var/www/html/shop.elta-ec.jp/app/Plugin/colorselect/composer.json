@@ -1,0 +1,1 @@
+{"name":"ec-cube\/colorselect","version":"1.1.0","description":"\u30ab\u30e9\u30fc\u30bb\u30ec\u30af\u30c8","type":"eccube-plugin","require":{"ec-cube\/plugin-installer":"~0.0.7 || ^2.0"},"extra":{"code":"colorselect","id":1958}}

@@ -1,0 +1,95 @@
+# flash messages
+restock_mail.admin.save.complete: 登録しました。
+restock_mail.admin.save.error: 登録に失敗しました。
+restock_mail.admin.not_found: 再入荷お知らせメールは見つかりませんでした。
+restock_mail.admin.delete.complete: 再入荷お知らせメールを削除しました。
+restock_mail.admin.product.not_found: 商品が見つかりません。
+
+# 共通
+restock_mail.common.required: 必須
+
+# 設定画面
+restock_mail.admin.config.title: お知らせメール設定
+restock_mail.admin.config.sub_title: プラグイン一覧
+restock_mail.admin.config.config_title: 設定
+restock_mail.admin.config.review_max: 'お知らせメールの表示件数(%min%〜%max%)'
+restock_mail.admin.config.conversion.save: 登録
+restock_mail.admin.config.conversion.back: プラグイン一覧
+
+# お知らせメール一覧画面
+restock_mail.admin.restock_mail.title: お知らせメール管理
+restock_mail.admin.restock_mail.sub_title: 商品管理
+restock_mail.admin.restock_mail.search_detail: 詳細検索
+restock_mail.admin.restock_mail.search_button: 検索
+restock_mail.admin.restock_mail.search_clear: 検索条件をクリア
+restock_mail.admin.restock_mail.search_result_count: '検索結果：%count%件が該当しました。'
+restock_mail.admin.restock_mail.search_multi: 投稿者名・投稿者URL
+restock_mail.admin.restock_mail.search_product_name: 商品名
+restock_mail.admin.restock_mail.search_product_code: 商品コード
+restock_mail.admin.restock_mail.search_posted_date: 投稿日
+restock_mail.admin.restock_mail.search_posted_date_start: 投稿日(開始)
+restock_mail.admin.restock_mail.search_posted_date_end: 投稿日(終了)
+restock_mail.admin.restock_mail.search_sex: 性別
+restock_mail.admin.restock_mail.search_recommend_level: おすすめレベル
+restock_mail.admin.restock_mail.search_review_status: 送信フラグ
+restock_mail.admin.restock_mail.search_no_result: 検索条件に合致するデータが見つかりませんでした
+restock_mail.admin.restock_mail.search_invalid_condition: 検索条件に誤りがあります
+restock_mail.admin.restock_mail.search_change_condition_and_retry: 検索条件を変えて、再度検索をお試しください。
+restock_mail.admin.restock_mail.search_try_detail_condition: '[詳細検索]も試してみましょう。'
+restock_mail.admin.restock_mail.diaply_count: '%count%件'
+restock_mail.admin.restock_mail.th_posted_date: 投稿日
+restock_mail.admin.restock_mail.th_contributor: 投稿者名
+restock_mail.admin.restock_mail.th_product_name: 商品名
+restock_mail.admin.restock_mail.th_title: タイトル
+restock_mail.admin.restock_mail.th_level: おすすめレベル
+restock_mail.admin.restock_mail.th_status: 公開・非公開
+restock_mail.admin.restock_mail.delete: 削除
+restock_mail.admin.restock_mail.delete_cancel: キャンセル
+restock_mail.admin.restock_mail.delete_confirm_title: お知らせメールを削除します
+restock_mail.admin.restock_mail.delete_confirm_message: 削除してよろしいですか？
+
+# お知らせメール編集画面
+restock_mail.admin.restock_mail_edit.title: お知らせメール登録・編集
+restock_mail.admin.restock_mail_edit.sub_title: 商品管理
+restock_mail.admin.restock_mail_edit.review_detail: お知らせメール詳細
+restock_mail.admin.restock_mail_edit.product_name: 商品名
+restock_mail.admin.restock_mail_edit.posted_date: 投稿日時
+restock_mail.admin.restock_mail_edit.conversion.save: 登録
+restock_mail.admin.restock_mail_edit.conversion.back: お知らせメール管理
+
+# お知らせメール投稿画面
+restock_mail.front.review.title: お知らせメールを投稿
+restock_mail.front.review.description: 商品について、お客様のご感想をお待ちしております。
+restock_mail.front.review.product_name: 商品名
+restock_mail.front.review.back: 戻る
+restock_mail.front.review.confirm: 確認ページへ
+
+# お知らせメール確認画面
+restock_mail.front.review.confirm.description: |
+  下記の内容で送信してもよろしいでしょうか？
+  よろしければ、一番下の「投稿する」ボタンをクリックしてください。
+restock_mail.front.review.comfirm.post: 投稿する
+
+# お知らせメール完了画面
+restock_mail.front.review.complete.thanks: ご投稿ありがとうございます。
+restock_mail.front.review.complete.thanks_detail: |
+  内容を確認後、反映させていただきます。
+  今しばらくお待ちくださいませ。
+restock_mail.front.review.complete.back: 商品ページへ戻る
+
+# お知らせメールフォーム
+restock_mail.form.restock_mail.reviewer_name: 投稿者名
+restock_mail.form.restock_mail.reviewer_url: URL
+restock_mail.form.restock_mail.title: タイトル
+restock_mail.form.restock_mail.comment: コメント
+restock_mail.form.restock_mail.recommend_level: おすすめレベル
+
+# 商品詳細画面への差し込みブロック
+restock_mail.front.product_detail.title: この商品のお知らせメール
+restock_mail.front.product_detail.no_review: お知らせメールはありません。
+restock_mail.front.product_detail.post_review: お知らせメールを投稿
+restock_mail.front.product_detail.name: '%name% さん'
+
+
+
+

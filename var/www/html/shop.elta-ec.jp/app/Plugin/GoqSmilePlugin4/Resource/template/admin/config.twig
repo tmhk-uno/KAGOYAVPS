@@ -1,0 +1,71 @@
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['store', 'plugin', 'plugin_list'] %}
+
+{% block title %}GoQSmile設定{% endblock %}
+{% block sub_title %}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css">
+<link href={{ asset('GoqSmilePlugin4/assets/css/config.css', 'plugin') }} rel="stylesheet"/>
+{% endblock stylesheet %}
+
+{% block javascript %}{% endblock javascript %}
+
+{% block main %}
+    <div class="wrap">
+      <h1><!--  --></h1>
+      <div class="gs--setting container-small">
+        <div class="gs-welcome">
+          <div class="logo"><img src={{ asset('GoqSmilePlugin4/assets/images/logo.png', 'plugin') }} alt="画像：GoQSmile（ごくースマイル）ロゴ"></div>
+          <h2>ごくースマイルへようこそ！</h2>
+          <p>AIチャットボット「GoQSmile（ごくースマイル）」が<br>
+              あなたのEC-CUBEサイトに、すぐにカンタンに設置できます。</p>
+          <p><a href="http://goqsmile.com" target="_blank">ごくースマイルについて詳しくはこちら</a></p>
+        </div>
+        <div class="gs-card gs-sec">
+          <h3 class="gs-sec-heading"><span class="gs-ic">1</span>ごくースマイル アカウント作成</h3>
+          <p>まずはAIチャットボット「GoQSmile（ごくースマイル）」のアカウント登録をしてください。<br>
+              「20日間無料お試し」から、無料でアカウントを作成できます。</p>
+          <button type="button" class="btn btn-primary" onclick="window.open('https://goqsmile.com/freetrial/', '_blank');">20日間無料お試しはこちら</button>
+          <br>
+          <br>
+          <a href="http://ai.goqsystem.com/app/" target="_blank">アカウントをお持ちの方（ログイン）</a>
+        </div>
+        <div class="gs-card gs-sec">
+          <h3 class="gs-sec-heading"><span class="gs-ic">2</span>アプリケーション識別IDを入力</h3>
+          <p>ごくースマイルにログインして、「アプリケーション基本情報」ページに記載されている「アプリケーション識別ID」をコピーして、下記入力フォームに貼り付けて保存してください。</p>
+          <form class="form-horizontal" method="post">
+            {{ form_widget(form._token) }}
+            <div class="form-inline">
+                <label for="app_id">アプリケーション識別ID</label>
+                {{ form_widget(form.app_id) }}
+                <button class="btn btn-ec-conversion px-3" type="submit">登録</button>
+            </div>
+          </form>
+          <div class="gs-capture">
+            <img src={{ asset('GoqSmilePlugin4/assets/images/img_capture_01.png', 'plugin') }} alt="画像：アプリケーション識別IDを入力">
+          </div>
+        </div>
+        <div class="gs-card gs-sec">
+          <h3 class="gs-sec-heading"><span class="gs-ic">3</span>設置完了</h3>
+          <p>以上で設置は完了です。<br>
+              あなたのEC-CUBEサイトにチャットボットが表示されていることを確認してください。</p>
+          <div class="gs-capture">
+            <img src={{ asset('GoqSmilePlugin4/assets/images/img_complete.png', 'plugin') }} alt="画像：設置完了">
+          </div>
+        </div>
+        <div class="gs-footer">
+          <ul>
+            <li><a href="https://goqsmile.com/#whats" target="_blank">GoQSmileについて</a></li>
+            <li><a href="https://goqsmile.com/regulation/" target="_blank">利用規約</a></li>
+            <li><a href="https://goqsmile.com/privacy/" target="_blank">プライバシーポリシー</a></li>
+            <li><a href="https://goqsmile.com/contact/" target="_blank">お問い合わせ</a></li>
+          </ul>
+          <div class="copyright"><small>&copy;{{ "now"|date('Y') }}&ensp;GoQSystem</small></div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+parameters:
+    restock_mail_display_count_min: 1
+    restock_mail_display_count_max: 30

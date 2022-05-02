@@ -1,0 +1,33 @@
+
+
+#SITEGUARD_PLUGIN_SETTINGS_START
+#SITEGUARD_PLUGIN_SETTINGS_END
+
+# BEGIN WordPress
+# "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
+# 動的に生成され、WordPress フィルターによってのみ修正が可能です。
+# これらのマーカー間にあるディレクティブへのいかなる変更も上書きされてしまいます。
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /keep/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /keep/index.php [L]
+</IfModule>
+
+# 管理画面へのBasic認証
+#
+AuthType Basic
+AuthName "Please enter username and password"
+AuthUserFile /var/www/html/kagibako/elta.htpasswd
+AuthGroupFile /dev/null
+require valid-user
+SetEnvIf Request_URI "/" admin_path  # ^/adminは, 管理画面URLに応じて変更してください
+<RequireAll>
+    Require all granted
+    Require not env admin_path
+</RequireAll>
+
+# END WordPress

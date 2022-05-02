@@ -1,0 +1,365 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+
+<div class="ec-role">
+    <div class="ec-pageHeader">
+        <h1>{{ 'ショッピングガイド'|trans }}</h1>
+    </div>
+    <div class="ec-off1Grid">
+        <div class="ec-off1Grid__cell">
+            <div class="ec-borderedDefs">
+                    <dl id="help_about_box__shop_name">
+                        <dt><label class="ec-label">{{ '目次'|trans }}</label></dt>
+                        <dd>
+                        <a href="#title1">ご注文の流れ ></a><br>
+                        <a href="#title2">お支払い方法 ></a><br>
+                        <a href="#title3">配送方法 ></a><br>
+                        <a href="#title4">送料 ></a><br>
+                        <a href="#title5">商品の特徴・選び方・組み合わせ方 ></a><br>
+                        <a href="#title6">交換・キャンセル ></a><br>
+                        <a href="#title7">会員登録・マイページ ></a><br>
+
+                        </dd>
+                    </dl>
+            </div>
+
+            <div class="ec-heading-bold"><a id="title1"  class="notlink">§＊＊＊　ご注文の流れ　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+                {% if BaseInfo.shop_name|default is not empty %}
+                    <dl id="help_about_box__shop_name">
+                        <dt><label class="ec-label">{{ 'step1-商品を選ぶ'|trans }}</label></dt>
+                        <dd>メニュー（アウトレット、ナイロンコードローター、ナイロンコード、安全作業防具）あるいはTOPICS/特集、CATEGORY/カテゴリなどから商品をお探しいただけます。</dd>
+                    </dl>
+                    <dl>
+                        <dt><label class="ec-label">{{ '>> ナイロンコードの選び方'|trans }}</label></dt>
+                        <dd>ナイロンコードには、タイプ（スプール巻きor安全コード）、口径、断面形状、より形状などのスペックがあります。<br>それにより、装着できるローター機種、切断性、耐久性、静粛性などが変化します。<br>スプール巻き対応ローターにはスプール巻きコード、安全コード対応ローターには安全コードが装着できます。<br>詳しいナイロンコードの選び方は公式サイト<a href="https://elta-ec.jp/choice_nyloncode/" target="_blank" title="「ナイロンコードを選ぶ」">「ナイロンコードを選ぶ」</a>をご参照ください。</dd>
+                    </dl>
+                    <dl>
+                        <dt class="guide-dt"><label class="ec-label">{{ '>> ナイロンコードローターの選び方'|trans }}</label></dt>
+                        <dd>ナイロンコードローターには、スプール巻き対応と安全コード対応があります。<br>スプール巻き対応ローターには、コード繰り出し機能として全自動、半自動、巻込式があります。<br>安全コード対応ローターには差込式があります。<br>ローター機種により、装着できる刈払機の排気量、地面からの刈高、コード繰り出し機能などが変化します。<br>ローターとコードの互換性は公式サイト<a href="https://elta-ec.jp/choice_nyloncode/" target="_blank" title="「ナイロンコードを選ぶ」">「ナイロンコードを選ぶ」</a>をご参照ください。</dd>
+                    </dl>
+                    <dl>
+                        <dt class="guide-dt"><label class="ec-label">{{ '>> アウトレット'|trans }}</label></dt>
+                        <dd>訳あり商品を<a href="https://shop.elta-ec.jp/products/list?category_id=11" target="_blank" title="アウトレット">「アウトレット」</a>で販売しています。お値下げ理由も明記しておりますので、ご理解の上ご利用ください。</dd>                        
+                    </dl>
+                               
+                    <dl id="help_about_box__company_name">
+                        <dt>
+                            <label class="ec-label">{{ 'step2-商品購入'|trans }}</label>
+                        </dt>
+                        <dd>「カートへ進む」からショッピングカートへお進みください。商品内容・オプション選択・数量・金額をご確認の上「レジに進む」からレジへお進みください。</dd>
+                    </dl>
+                
+                    <dl id="help_about_box__address">
+                        <dt>
+                            <label class="ec-label">{{ 'step3-会員購入、あるいはゲスト購入'|trans }}</label>
+                        </dt>
+                        <dd>会員購入をご希望ですでに会員登録されたお客様は、メールアドレス・パスワードを入力の上「ログイン」してください（step5-ご注文手続きへ移行します）。<br>
+                        会員購入をご希望でまだ会員登録されていない客様は、「新規会員登録」へお進みください。<br>
+                        ゲスト購入をご希望のお客様は「ゲスト購入」へお進みください。</dd>
+                    </dl>
+                
+                    <dl id="help_about_box__phone_number">
+                        <dt>
+                            <label class="ec-label">{{ 'step4-お客様情報の入力'|trans }}</label>
+                        </dt>
+                    <dd>お客様情報を入力ください（会員購入の場合は不要です）。赤字の「必須」項目は必ずご入力し、「次へ」へお進みください。</dd>
+                    </dl>
+                
+                    <dl id="help_about_box__business_hour">
+                        <dt>
+                            <label class="ec-label">{{ 'step5-ご注文手続き'|trans }}</label>
+                        </dt>
+                        <dd>配送情報、お支払方法、お支払い合計を確認いただき、お問い合わせ事項がおありの場合はお問い合わせ欄に入力いただいた上で「確認する」へお進みください。<br>
+                        配送業者は佐川急便のみ、お届け日・指定時間をお選びいただけます。<br>
+                        お支払方法はクレジットカード、銀行振込、現金代引となります。</dd>
+                    </dl>
+                
+                    <dl id="help_about_box__good_traded">
+                        <dt>
+                            <label class="ec-label">{{ 'step6-ご注文内容の確認'|trans }}</label>
+                        </dt>
+                        <dd>お客様情報、配送情報、お支払方法、お問い合わせ内容をご確認いただき、よろしければ「決済」へお進みください。</dd>
+                    </dl>
+                
+                    <dl id="help_about_box__shop_name">
+                        <dt>
+                            <label class="ec-label">{{ 'step7-購入'|trans }}</label>
+                        </dt>
+                        <dd>クレジットカード決済の場合はカード情報を入力したうえで「購入する」へお進みください。</dd>
+                    </dl>
+                
+                    <dl id="help_about_box__company_name">
+                        <dt>
+                            <label class="ec-label">{{ 'step8-購入完了'|trans }}</label>
+                        </dt>
+                        <dd>ご注文完了ページが表示され、入力いただいたメールアドレスへ「ご注文ありがとうございます」メールが届けば、注文完了です。</dd>
+                    </dl>
+                   
+                    <dl id="help_about_box__phone_number">
+                        <dt>
+                            <label class="ec-label">{{ 'step-9完了'|trans }}</label>
+                        </dt>
+                    <dd>ショップより発送されましたら、登録いただきましたメールアドレスに「発送完了」のメールをお届けいたします。配送状況につきましては、メールアドレス内のお問い合わせ番号より佐川急便営業所または<a href="https://k2k.sagawa-exp.co.jp/p/sagawa/web/okurijoinput.jsp?_ga=2.67345938.2075891522.1647244629-1288200889.1647244629" target="_blank">　＜佐川急便／お荷物問い合わせサービス＞　</a>にてご確認ください。</dd>
+                    </dl>
+            </div>
+        </div>
+    </div>   
+
+    <div class="ec-off1Grid">       
+        <div class="ec-off1Grid__cell">
+            <div class="ec-heading-bold"><a id="title2"  class="notlink">§＊＊＊　お支払い方法　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'お支払方法'|trans }}</label>
+                    </dt>
+                    <dd>クレジットカード、銀行振込、現金代引よりお選びいただけます。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '利用できるカード'|trans }}</label>
+                    </dt>
+                    <dd>VISA、AMEX、DINERS、JCB、DISCOVER</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'クレジットカード情報の登録'|trans }}</label>
+                    </dt>
+                    <dd>会員登録されたお客様のクレジットカード情報を登録いただけます。購入の際にはセキュリティコードの入力のみで決済いただけます（カード情報は決済サービス会社に直接連携されるため、当ショップのサーバーには保存されません）。</dd>
+                </dl>
+
+                 <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'クイック決済'|trans }}</label>
+                    </dt>
+                    <dd>会員登録されたお客様のクレジットカード情報を登録いただきますと、セキュリティコードの入力のみでクイック決済によりお買い物いただけます。</dd>
+                </dl>
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '銀行振込'|trans }}</label>
+                    </dt>
+                    <dd>
+                    金融機関名：青梅信用金庫（金融機関コード1358）<br>支店名：瑞穂支店（支店コード004）<br>普通口座：0325284<br>口座名義：株式会社エルタ（カブシキガイシャエルタ）
+                    </dd>
+                </dl>
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '現金代引'|trans }}</label>
+                    </dt>
+                    <dd>
+                    佐川急便/飛脚宅配便にて現金代引<br>現金以外の代引には非対応
+                    </dd>
+                </dl>
+            </div>
+        </div>
+     </div>   
+
+      <div class="ec-off1Grid"> 
+        <div class="ec-off1Grid__cell">
+            <div class="ec-heading-bold"><a id="title3"  class="notlink">§＊＊＊　配送方法　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+
+               <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '配送業者'|trans }}</label>
+                    </dt>
+                    <dd>佐川急便/飛脚宅配便で配送いたします。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '長期休暇前後のお届け'|trans }}</label>
+                    </dt>
+                    <dd>年末年始、ゴールデンウィーク、夏季休暇期間中のご注文は休暇明けの配送となり、通常よりお時間をいただきます。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'お届け日時指定'|trans }}</label>
+                    </dt>
+                    <dd>お届けの日付と時間を指定することができます。レジ内の「ご注文手続き」ページよりご指定ください。</dd>
+                </dl>
+
+                 <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '複数商品の同梱に関して'|trans }}</label>
+                    </dt>
+                    <dd>複数商品ご購入の際にも、同梱発送は不可となっております。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '複数お届け先への購入に関して'|trans }}</label>
+                    </dt>
+                    <dd>複数商品をカートへ追加していただいたのち、複数のお届け先を指定することができます。<br>
+                    一つのお届け先に一つの商品のみご指定可能です。</dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-off1Grid"> 
+        <div class="ec-off1Grid__cell">
+            <div class="ec-heading-bold"><a id="title4"  class="notlink">§＊＊＊　送料　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+            
+               <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'お買上金額5,000円以上'|trans }}</label>
+                    </dt>
+                    <dd>標準地域……全国送料無料</dd>
+                </dl>
+
+                 <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ ''|trans }}</label>
+                    </dt>
+                    <dd>沖縄県・離島……1,650円</dd>
+                </dl>
+
+                 <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'お買上金額5,000円未満'|trans }}</label>
+                    </dt>
+                    <dd>標準地域……全国660円</dd>
+                </dl>
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ ''|trans }}</label>
+                    </dt>
+                    <dd>沖縄県・離島……2,750円</dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-off1Grid"> 
+        <div class="ec-off1Grid__cell">
+            <div class="ec-heading-bold"><a id="title5" class="notlink">§＊＊＊　商品の特徴・選び方・組み合わせ方　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+            
+               <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '公式サイト'|trans }}</label>
+                    </dt>
+                    <dd>商品の特徴・選び方・組み合わせ方は<a href="https://elta-ec.jp" target="_blank" title="株式会社エルタ">公式サイト「株式会社エルタ」</a>をご覧ください。</dd>
+                </dl>
+
+              </div>
+        </div>
+    </div>
+
+    <div class="ec-off1Grid"> 
+        <div class="ec-off1Grid__cell">
+            <div class="ec-heading-bold"><a id="title6"  class="notlink">§＊＊＊　交換・キャンセル　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+            
+               <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '返品・交換について'|trans }}</label>
+                    </dt>
+                    <dd>商品到着後5日以内に限り、到着した商品が注文と異なる場合および商品が破損している場合、良品と交換（配送手数料は当社負担）</dd>
+                </dl>
+
+                </div>
+        </div>
+    </div>
+
+    <div class="ec-off1Grid"> 
+        <div class="ec-off1Grid__cell">
+            <div class="ec-heading-bold"><a id="title7" class="notlink" >§＊＊＊　会員登録・マイページ　＊＊＊§</a></div>
+            <div class="ec-borderedDefs">
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ '会員登録の方法'|trans }}</label>
+                    </dt>
+                    <dd>ウェブサイト右上の「新規会員登録」へお進みいただき、必要事項を入力ください。「同意する」に進み、新規会員登録（確認）ページの内容を確認いただいたうえで「会員登録をする」にお進みください。仮会員に登録されます。ご入力いただいたメールアドレスに「会員登録のご確認」メールを送信いたします。<br>「会員登録のご確認」メール内のURLにアクセスすると本会員登録が完了いたします。<br>会員登録していただきますと、お気に入り追加、購入履歴、クレジットカード登録、お届け先登録などができ、快適にショッピングいただけます。</dd>
+                </dl>
+
+               <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'ログイン方法'|trans }}</label>
+                    </dt>
+                    <dd>ウェブサイト右上の「マイページ」もしくは「ログイン」へお進みいただき、登録済みのメールアドレスとパスワードを入力ください。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic1-ご注文履歴'|trans }}</label>
+                    </dt>
+                    <dd>ご注文履歴の確認：過去のご注文履歴をご確認いただけます。<br>
+                    再注文：ご注文履歴より同一商品の再注文が可能です。履歴内の「詳細を見る」にお進みいただき、「再注文」にお進みください。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic2-お気に入り一覧'|trans }}</label>
+                    </dt>
+                    <dd>過去にお気に入り追加された商品をご覧いただけます。商品詳細ページからカートへ入れることが可能です。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic3-会員情報編集'|trans }}</label>
+                    </dt>
+                    <dd>ご登録いただいた会員情報を編集いただけます。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic4-お届け先一覧'|trans }}</label>
+                    </dt>
+                    <dd>複数のお届け先を登録する：「新規お届け先を追加する」にお進みください。<br>
+                    登録済みのお届け先を変更する：編集したいお届け先情報の右にある「変更」にお進みください。<br>
+                    登録済みのお届け先を削除する：編集したいお届け先情報の左にある「✖」にお進みください。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic5-退会手続き'|trans }}</label>
+                    </dt>
+                    <dd>退会手続きが完了した時点で、現在保存されている購入履歴やお届け先等の情報は、すべて削除されますのでご注意ください。<br>
+                    退会する：「退会手続き」へお進みください。「はい、退会します」へお進みください。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic6-登録カード情報編集'|trans }}</label>
+                    </dt>
+                    <dd>クレジットカード情報登録：お客様のクレジットカード情報をご入力いただき、「カード情報登録」へお進みください。<br>
+                    クレジットカード情報削除：登録済みクレジットカード右の「カード情報削除」へお進みください。</dd>
+                </dl>
+
+                <dl id="help_about_box__shop_name">
+                    <dt>
+                        <label class="ec-label">{{ 'topic7-ログアウト'|trans }}</label>
+                    </dt>
+                    <dd>ウェブページ右上の「ログアウト」へお進みください。安全のため、閲覧を終えた際にはログアウトをお選びください。</dd>
+                </dl>
+
+                {% endif %}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

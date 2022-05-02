@@ -1,0 +1,1 @@
+{"name":"ec-cube\/restockmail","version":"1.0.24","description":"\u518d\u5165\u8377\u304a\u77e5\u3089\u305b\u30e1\u30fc\u30eb","type":"eccube-plugin","require":{"ec-cube\/plugin-installer":"~0.0.7 || ^2.0"},"extra":{"code":"RestockMail","id":1959}}

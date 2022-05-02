@@ -1,0 +1,247 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+
+{% block javascript %}
+<script type="text/javascript">
+
+{% if is_granted('ROLE_USER') %}
+    var logon = true;
+{% else %}
+    var logon =false;
+
+
+{% endif %}
+
+
+
+var oldcid = "";
+
+function Restock(){
+    if(oldcid != document.querySelector("input[name=ProductClass]").value){
+       oldcid = document.querySelector("input[name=ProductClass]").value
+    if(typeof stock_data == "undefined"){
+
+       if(
+           document.querySelector("#form1 > div.ec-productRole__btn > button").innerText == "ただいま品切れ中です"  ||
+           document.querySelector("#form1 > div.ec-productRole__btn > button").innerText == "ただいま品切れ中です。"
+
+       ){
+            if(logon == false){
+                document.getElementById("RestockInfo").style.display = "";
+                document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "none";
+            }else{
+                document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "";
+                $.ajax({
+                dataType:"json",
+                   type: "POST",
+                   url: "{{ url('restock_mail_get') }}",
+                   data: "cid="+document.querySelector("input[name=ProductClass]").value,
+                   success: function(msg){
+                    if(msg.status == "OK"){
+                        if(msg.count == 0){
+                            document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "none";
+                                document.getElementById("RestockButton").style.display = "";
+                                document.getElementById("RestockButton").removeAttribute("disabled")
+                        }else{
+                            document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "none";
+                                document.getElementById("RestockButton").style.display = "";
+                                document.getElementById("RestockButton").setAttribute("disabled","disabled")
+                        }
+                    }
+                    }
+                });
+            }
+        }else{
+            document.getElementById("RestockInfo").style.display = "none";
+            document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "";
+            document.getElementById("RestockButton").style.display = "none";
+        }
+    }else{
+          if(
+
+  (document.getElementById("stockview") == null && stock_data[0] == "×")
+  || document.getElementById("stockview").innerHTML == "在庫: ×"
+  ){
+      if(logon == false){
+
+              document.getElementById("RestockInfo").style.display = "";
+         document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "none";
+  //                                   document.getElementById("RestockButton").setAttribute("disabled","disabled")
+    //    document.getElementById("RestockButton").style.display = "";
+
+
+
+
+      }else{
+            document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "";
+        $.ajax({
+dataType:"json",
+   type: "POST",
+   url: "{{ url('restock_mail_get') }}",
+   data: "cid="+document.querySelector("input[name=ProductClass]").value,
+   success: function(msg){
+    if(msg.status == "OK"){
+        if(msg.count == 0){
+            document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "none";
+                document.getElementById("RestockButton").style.display = "";
+                document.getElementById("RestockButton").removeAttribute("disabled")
+        }else{
+            document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "none";
+                document.getElementById("RestockButton").style.display = "";
+                document.getElementById("RestockButton").setAttribute("disabled","disabled")
+        }
+    }
+   }
+ });
+      }
+  }else{
+       document.getElementById("RestockInfo").style.display = "none";
+         document.querySelector(".ec-productRole__btn").querySelector("button").style.display = "";
+        document.getElementById("RestockButton").style.display = "none";
+  }
+    }
+    }
+}
+
+function RestockAdd(){
+                document.getElementById("RestockButton").setAttribute("disabled","disabled")
+        $.ajax({
+dataType:"json",
+   type: "POST",
+   url: "{{ url('restock_mail_set') }}",
+   data: "pid=" +document.querySelector("input[name=product_id]").value + "&classid="+document.querySelector("input[name=ProductClass]").value +"&code=" + document.querySelector(".product-code-default").innerText,
+   success: function(msg){
+    if(msg.status == "OK"){
+        window.location.reload();
+    }
+   }
+ });
+}
+
+$(function() {
+
+$(document.querySelector(".ec-productRole__btn")).after('<div id="RestockInfo" class="ec-productRole__btn"><button id="openModal" class="ec-blockBtn--action " type="button">再入荷お知らせ登録</button>' +
+'<section id="modalArea" class="modalArea">'+
+'<div id="modalBg" class="modalBg"></div>'+
+'  <div class="modalWrapper">'+
+'    <div class="modalContents">'+
+'      <h3>再入荷お知らせ登録</h3>'+
+'<p>ログインしますと再入荷のお知らせメールを受信できます。<br><a href="{{ url("mypage_login") }}">⇨こちらからログイン</a></p>' +
+'<p>会員登録がお済でない方は会員登録をお願いいたします。<br><a href="{{ url("entry") }}">⇨こちらから会員登録</a></p>\n'+
+'    </div>\n'+
+'<div id="closeModal" class="closeModal">×</div>'+
+'</div>'+
+'</section></div>');
+$(document.querySelector(".ec-productRole__btn")).after('<div class="ec-productRole__btn"><button type="button" class="ec-blockBtn--action " onclick="RestockAdd()" id="RestockButton">再入荷お知らせ登録</button></div>');
+document.getElementById("RestockButton").style.display = "none";
+document.getElementById("RestockInfo").style.display = "none";
+
+if(logon == false){
+      const modalArea = document.getElementById('modalArea');
+  const openModal = document.getElementById('openModal');
+  const closeModal = document.getElementById('closeModal');
+  const modalBg = document.getElementById('modalBg');
+  const toggle = [openModal,closeModal,modalBg];
+
+  for(let i=0, len=toggle.length ; i<len ; i++){
+    toggle[i].addEventListener('click',function(){
+      modalArea.classList.toggle('is-show');
+    },false);
+  }
+
+}
+
+setInterval(function(){
+    Restock();
+},100);
+});
+
+</script>
+{% endblock %}
+{% block stylesheet %}
+    <style>
+        #restock_mail_recommend_level {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        #restock_mail_recommend_level label {
+            position: relative;
+            bottom: 18px;
+            left: 20px;
+            line-height: 0;
+        }
+
+
+
+
+        /* モーダルCSSここから */
+        .modalArea {
+            visibility: hidden; /* displayではなくvisibility */
+            opacity : 0;
+            position: fixed;
+            z-index: 9999; /* サイトによってここの数値は調整 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: .4s;
+            font-size: small;
+        }
+
+        .modalBg {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30,30,30,0.9);
+        }
+
+        .modalWrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            width: 70%;
+            max-width: 500px;
+            padding: 10px 30px;
+            background-color: #fff;
+        }
+
+        .closeModal {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+
+        .is-show { /* モーダル表示用クラス */
+            visibility: visible;
+            opacity : 1;
+        }
+        /* モーダルCSSここまで */
+
+
+        /* 以下ボタンスタイル */
+        button {
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #282828;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block main %}
+{% endblock %}
+

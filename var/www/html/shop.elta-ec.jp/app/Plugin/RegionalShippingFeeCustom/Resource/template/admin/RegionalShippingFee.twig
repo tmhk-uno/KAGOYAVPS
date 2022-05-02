@@ -1,0 +1,78 @@
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['setting', 'shop', 'shop_regional_shipping_fee'] %}
+
+{% block title %}{{ 'admin.setting.shop.regional_shipping_fee_info'|trans}}{% endblock %}
+{% block sub_title %}{{ 'admin.setting.shop'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block main %}
+<form name="form1" role="form" class="form-horizontal" id="point_form" method="post"
+    action="{{ url('admin_setting_shop_regional_shipping_fee') }}">
+
+    {{ form_widget(form._token) }}
+
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header"><span>{{ '特定地域への送料加算設定' }}</span></div>
+                    <div class="card-header"><span>{{ '加算A：送料無料に該当しないご注文への送料に加算する金額、および送料無料設定していない場合に加算する金額（fee_a）' }}</span></div>
+                    <div id="ex-shop-basic" class="card-body">
+                        <div class="row">
+                            <div class="col-2"><span>{{ '加算A：（基本送料＋加算A）' }}</span></div>
+                            <div class="col mb-2">
+                                {{ form_widget(form.fee_a) }}
+                                {{ form_errors(form.fee_a) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header"><span>{{ '加算B：送料無料に該当するご注文への送料に加算する金額（fee_b）' }}</span></div>
+                    <div id="ex-shop-basic" class="card-body">
+                        <div class="row">
+                            <div class="col-2"><span>{{ '加算B：（無料＋加算B）'}}</span></div>
+                            <div class="col mb-2">
+                                {{ form_widget(form.fee_b) }}
+                                {{ form_errors(form.fee_b) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header"><span>{{ '郵便番号設定（regional_list）' }}</span></div>
+                    <div id="ex-shop-basic" class="card-body">
+                        <div class="row">
+                            <div class="col-2"><span>{{ '特定地域に設定する郵便番号（半角数字、ハイフンなし、カンマ区切り）' }}</span>
+                            </div>
+                            <div class="col mb-2">
+                                {{ form_widget(form.regional_list,{ 'attr' : { 'rows' : 120 }}) }}
+                                {{ form_errors(form.regional_list) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-conversionArea">
+        <div class="c-conversionArea__container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-6">
+                    <div class="c-conversionArea__leftBlockItem">
+                    </div>
+                </div>
+                <div id="ex-conversion-action" class="col-6">
+                    <div class="row align-items-center justify-content-end">
+                        <div class="col-auto">
+                            <button class="btn btn-ec-conversion px-5"
+                                type="submit">{{ 'admin.common.registration'|trans }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% autoescape false %}
+※本メールは自動配信メールです。
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　※本メールは、
+　{{ BaseInfo.shop_name }}よりパスワード再発行手続きを希望された方に
+　お送りしています。
+　もしお心当たりが無い場合は、
+　その旨 info@elta.jp まで
+　ご連絡いただければ幸いです。
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+パスワードを変更するには下記URLにアクセスし、パスワードの再設定を行ってください。
+
+{{ reset_url }}
+
+※URLの有効期限は{{ expire }}分以内です。有効期限を過ぎますとURLは無効となりますので、その場合、もう一度最初から手続きを行ってください。
+
+************
+
+このメッセージはお客様へのお知らせ専用ですので、返信は以下へお願いいたします。
+株式会社エルタ
+190-1222 東京都西多摩郡瑞穂町箱根ケ崎東松原20番地1
+042-556-0184
+お問合せ：info@elta.jp
+{% endautoescape %}

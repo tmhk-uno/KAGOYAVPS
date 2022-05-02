@@ -1,0 +1,4 @@
+admin.setting.shop.regional_shipping_fee_info: 特定地域への送料加算設定
+admin.setting.shop.regional_shipping_fee_a.fee: お買上金額5000円未満の配送料金
+admin.setting.shop.regional_shipping_fee_b.fee: お買上金額5000円以上の配送料金
+admin.setting.shop.regional_shipping_fee.list: 郵便番号一覧

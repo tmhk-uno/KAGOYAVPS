@@ -1,0 +1,356 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% block stylesheet %}
+    <style>
+        input[type="radio"]{
+            display: none;
+        }
+        input[type="radio"] + label.imgs {
+            position: relative;
+            margin:10px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size:contain;
+            background-position: center center;
+            width: 100px;
+            height:100px;
+            background-color: white;
+            border: 1px solid #bbbbbb;
+        }
+        input[type="radio"]:checked + label.imgs {
+            position: relative;
+            margin:10px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size:contain;
+            background-position: center center;
+            width: 100px;
+            height:100px;
+            background-color: white;
+            border: 2px solid black;
+            opacity: 0.5;
+        }
+
+        input[type="radio"]{
+            display: none;
+        }
+        input[type="radio"] + label {
+            position: relative;
+            margin:10px;
+            display: inline-block;
+            width: 100px;
+            height:100px;
+            background-color: white;
+            color: black;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #bbbbbb;
+
+        }
+        input[type="radio"]:checked + label {
+            background-color: black;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+
+    </style>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript">
+var class1name = "{{ sdata.cat1name}}";
+var class2name = "{{ sdata.cat2name}}";
+
+var stock_data = {};
+{% for key, value in stockdata2 %}
+stock_data["{{ key }}"] = "{{ value }}";
+{% endfor %}
+
+var c1stockdata = {};
+{% for key, value in c1stockdata %}
+c1stockdata["{{ key }}"] = "{{ value }}";
+{% endfor %}
+
+
+
+var colimg = {};
+{% if Product.colorimg1   %}
+colimg["{{  Product.colortext1 }}"] = "{{ Product.colorimg1  }}";
+{% endif %}
+{% if Product.colorimg2  %}
+colimg["{{  Product.colortext2 }}"] = "{{ Product.colorimg2  }}";
+{% endif %}
+{% if Product.colorimg3   %}
+colimg["{{  Product.colortext3 }}"] = "{{ Product.colorimg3  }}";
+{% endif %}
+{% if Product.colorimg4   %}
+colimg["{{  Product.colortext4 }}"] = "{{ Product.colorimg4  }}";
+{% endif %}
+{% if Product.colorimg5   %}
+colimg["{{  Product.colortext5 }}"] = "{{ Product.colorimg5  }}";
+{% endif %}
+{% if Product.colorimg6   %}
+colimg["{{  Product.colortext6 }}"] = "{{ Product.colorimg6  }}";
+{% endif %}
+{% if Product.colorimg7   %}
+colimg["{{  Product.colortext7 }}"] = "{{ Product.colorimg7  }}";
+{% endif %}
+{% if Product.colorimg8   %}
+colimg["{{  Product.colortext8 }}"] = "{{ Product.colorimg8  }}";
+{% endif %}
+
+
+
+    $(function() {
+
+
+
+
+            var sview = document.createElement("div");
+    sview.id = "stockview";
+    sview.innerHTML = "在庫: -";
+    if(typeof  stock_data[0] != "undefined"){
+        sview.innerHTML = "在庫: " + stock_data[0];
+        if(typeof Restock != "undefined"){
+            Restock();
+        }
+
+    }
+    document.querySelector(".ec-numberInput").parentNode.insertBefore(sview, document.querySelector(".ec-numberInput"));
+var pcode = document.querySelector(".product-code-default").innerText;
+
+    if(typeof  stock_data[pcode] != "undefined"){
+        document.getElementById("stockview").innerHTML = "在庫: " + stock_data[pcode];
+    }else{
+        document.getElementById("stockview").innerHTML = "在庫: -";
+
+    }
+
+        if(document.getElementById('classcategory_id1')){
+            document.getElementById('classcategory_id1').style.display = 'none';
+            Class1Set();
+            Class1Change();
+        }
+        if(document.getElementById('classcategory_id2')){
+            Class2Set();
+            document.getElementById('classcategory_id2').style.display = 'none';
+            Class2Change();
+        }
+
+
+
+    });
+
+
+function Class1Set() {
+    var elem = document.getElementById("Class1RadioOuter");
+    if (elem) {
+        elem.parentNode.removeChild(elem);
+    }
+    var base = document.createElement("div");
+    base.id = "Class1RadioOuter";
+
+    document.getElementById('classcategory_id1').parentNode.insertBefore(base, document.getElementById('classcategory_id1'));
+
+    var c1name = document.createElement("div");
+    c1name.id = "Class1name";
+    c1name.innerText = class1name + ":未選択";
+    base.appendChild(c1name);
+
+
+
+    var class1 = document.getElementById('classcategory_id1').querySelectorAll("option");
+    var first = null;
+    for (var i = 0; i < class1.length; i++) {
+        if (class1[i].innerText != "選択してください") {
+            var radio = document.createElement("input");
+            var temp2 = class1[i].innerText + "";
+            var temp =class1[i].innerText.replace("(品切れ中)", "");
+            var flag = true;
+            if(typeof  c1stockdata[temp] != "undefined" && c1stockdata[temp] != "1"){
+                flag = false;
+            }
+
+            if(first == null){
+                   first = radio;
+            }
+
+            radio.id = "Class1Radio" + i;
+            radio.type = "radio";
+            radio.name = "classcategory_id1";
+            radio.value = class1[i].value;
+            radio.setAttribute('vname',temp);
+            radio.onchange = function(){Class1Change();};
+            base.appendChild(radio);
+            var label = document.createElement("label");
+            label.setAttribute("for", "Class1Radio" + i);
+
+                label.setAttribute('vname',temp);
+
+            if(typeof  colimg[temp] == "undefined"){
+                label.innerText = temp;
+                if(temp2 != temp || flag == false){
+                    label.classList.add('no_stock');
+                     label.style.backgroundColor="#888888";
+                }else{
+
+                }
+
+            }
+            else{
+                if(temp2 != temp || flag == false){
+                                  label.style.backgroundImage="linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('"+ colimg[temp] +"')";
+                                  label.innerHTML ="<span style='display:block;margin-top: 10px;'></span>"
+                }else{
+                   label.style.backgroundImage="url('"+ colimg[temp] +"')";
+                }
+               label.classList.add('imgs');
+            }
+
+
+
+            if(class1name == "サイズ"){ label.classList.add('sized');}
+
+            if(first != null){
+                first.setAttribute("checked","checked");
+                 Class1Change()
+            }
+
+
+            base.appendChild(label);
+        }
+    }
+}
+function Class2Set() {
+    var elem = document.getElementById("Class2RadioOuter");
+    if (elem) {
+        elem.parentNode.removeChild(elem);
+    }
+    var base = document.createElement("div");
+    base.id = "Class2RadioOuter";
+
+    document.getElementById('classcategory_id2').parentNode.insertBefore(base, document.getElementById('classcategory_id2'));
+
+    var c2name = document.createElement("div");
+    c2name.id = "Class2name";
+    c2name.innerText = class2name + ":未選択";
+    base.appendChild(c2name);
+    var first = null;
+    var allfail = true;
+    var class2 = document.getElementById('classcategory_id2').querySelectorAll("option");
+    for (var i = 0; i < class2.length; i++) {
+        if (class2[i].innerText != "選択してください") {
+            var radio = document.createElement("input");
+            var temp2 = class2[i].innerText + "";
+            var temp = class2[i].innerText.replace("(品切れ中)", "");
+            if(first == null){
+                   first = radio;
+            }
+            radio.id = "Class2Radio" + i;
+            radio.type = "radio";
+            radio.name = "classcategory_id2";
+            radio.value = class2[i].value;
+            radio.setAttribute('vname',temp);
+            radio.onchange = function(){Class2Change();};
+
+            base.appendChild(radio);
+            var label = document.createElement("label");
+            label.setAttribute("for", "Class2Radio" + i);
+            label.innerText =  temp;
+            label.innerText = temp;
+                if(temp2 != temp){
+                   label.classList.add('no_stock');
+                   label.style.backgroundColor="#888888";
+                }else{
+
+                }
+
+
+            label.classList.add('sized');
+
+
+            base.appendChild(label);
+        }
+    }
+
+                if(first != null){
+                first.setAttribute("checked","checked");
+                 Class2Change();
+            }
+
+}
+
+function Class1Change(){
+    document.getElementById("classcategory_id1").value = document.querySelector("input[name='classcategory_id1']:checked").value;
+
+    document.getElementById("Class1name").innerText = class1name + ": " + document.querySelector("input[name='classcategory_id1']:checked").getAttribute("vname");
+
+    var $form = $('select[name=classcategory_id1]').parents('form');
+    var product_id = $form.find('input[name=product_id]').val();
+    var $sele1 =  $form.find('select[name=classcategory_id1]');
+    var $sele2 = $form.find('select[name=classcategory_id2]');
+
+    // 規格1のみの場合
+    if (!$sele2.length) {
+        eccube.checkStock($form, product_id, $sele1.val(), null);
+        // 規格2ありの場合
+    } else {
+        eccube.setClassCategories($form, product_id, $sele1, $sele2);
+    }
+            if(document.getElementById('classcategory_id2')){
+
+    Class2Set();
+    }
+
+
+   var pcode = document.querySelector(".product-code-default").innerText;
+
+    if(typeof  stock_data[pcode] != "undefined"){
+        document.getElementById("stockview").innerHTML = "在庫: " + stock_data[pcode];
+    }else{
+        document.getElementById("stockview").innerHTML = "在庫: -";
+
+    }
+        if(typeof Restock != "undefined"){
+            Restock();
+        }
+
+
+}
+function Class2Change(){
+        document.getElementById("classcategory_id2").value = document.querySelector("input[name='classcategory_id2']:checked").value;
+            document.getElementById("Class2name").innerText = class2name + ": " + document.querySelector("input[name='classcategory_id2']:checked").getAttribute("vname");
+
+
+    var $form = $('select[name=classcategory_id1]').parents('form');
+    var product_id = $form.find('input[name=product_id]').val();
+    var $sele1 = $form.find('select[name=classcategory_id1]');
+    var $sele2 = $form.find('select[name=classcategory_id2]');
+    eccube.checkStock($form, product_id, $sele1.val(), $sele2.val());
+
+   var pcode = document.querySelector(".product-code-default").innerText;
+
+    if(typeof  stock_data[pcode] != "undefined"){
+        document.getElementById("stockview").innerHTML = "在庫: " + stock_data[pcode];
+    }else{
+        document.getElementById("stockview").innerHTML = "在庫: -";
+
+    }
+            if(typeof Restock != "undefined"){
+            Restock();
+        }
+
+}
+</script>
+{% endblock javascript %}
+{% block main %}
+{% endblock %}

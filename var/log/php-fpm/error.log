@@ -1,0 +1,8 @@
+[21-Feb-2021 03:41:01] NOTICE: error log file re-opened
+[24-Feb-2021 16:40:56] NOTICE: Terminating ...
+[24-Feb-2021 16:40:56] NOTICE: exiting, bye-bye!
+[24-Feb-2021 16:40:57] WARNING: [pool www] ACL set, listen.owner = 'apache' is ignored
+[24-Feb-2021 16:40:57] WARNING: [pool www] ACL set, listen.group = 'apache' is ignored
+[24-Feb-2021 16:40:57] NOTICE: fpm is running, pid 42928
+[24-Feb-2021 16:40:57] NOTICE: ready to handle connections
+[24-Feb-2021 16:40:57] NOTICE: systemd monitor interval set to 10000ms

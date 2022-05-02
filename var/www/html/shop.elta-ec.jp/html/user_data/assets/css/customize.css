@@ -1,0 +1,32 @@
+/* カスタマイズ用CSS */
+
+/*SPサブページヘッダーロゴ*/
+.ec-headerTitle .ec-headerTitle__title_sub h1 img{
+      width: 150px;
+       }
+       
+/*SPページフッターロゴ*/
+.ec-footerTitle .ec-footerTitle__logo img{
+      width: 150px;
+       }
+       
+.ec-orderPayment img{
+        width: 150px;
+}
+       
+@media (min-width: 768px) {
+/*PCトップページヘッダーロゴ*/
+.ec-headerTitle .ec-headerTitle__title h1 img{
+      width: 600px;
+       }
+
+/*PCサブページヘッダーロゴ*/
+.ec-headerTitle .ec-headerTitle__title_sub h1 img{
+      width: 300px;
+        }
+      
+/*PCページフッターロゴ*/
+.ec-footerTitle .ec-footerTitle__logo img{
+      width: 150px;
+       }
+}
